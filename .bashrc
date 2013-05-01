@@ -7,6 +7,15 @@
 
 PS1='\w \$ '
 
+# If this is an xterm set the title
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;\w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
