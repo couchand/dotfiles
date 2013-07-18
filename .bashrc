@@ -94,7 +94,7 @@ alias gict='gitc'
 
 alias mocha='mocha --compilers coffee:coffee-script'
 
-alias tree='tree -L 2 -I *-meta.xml'
+alias tree='tree -L 3 -I *-meta.xml'
 
 mkcd()
 {
