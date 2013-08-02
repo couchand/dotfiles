@@ -97,6 +97,9 @@ alias cloc='cloc --read-lang-def=/home/andrew/projects/cloc-force/force-def.txt'
 
 alias tree='tree -L 3 -I *-meta.xml'
 
+export DEBFULLNAME="Andrew Couch"
+export DEBEMAIL="andy@couchand.com"
+
 mkcd()
 {
 MYDIR="$1"
