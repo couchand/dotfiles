@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# set the system volume, in percent
+#   can be >100%, but be careful of overdrive!
+
+# before running on a new system, set up the sink.
+
+# find the output sink
+#   pacmd list-sinks
+
+# create a compressor for that sink
+#   pacmd load-module module-ladspa-sink sink-name=ladspa_sink \
+#       master=alsa_output.pci-0000_00_1b.0.analog-stereo \
+#       plugin=dyson_compress_1403 label=dysonCompress \
+#       control=0,1,0.5,0.99
+
+pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo $1
