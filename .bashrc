@@ -110,7 +110,9 @@ clone()
 {
 USER="$1"
 REPO="$2"
-[ -z "$2" ] && REPO="$USER" && USER="couchand"
-git clone git@github.com:$USER/$REPO.git
-cd $REPO
+DEST="$3"
+[ -z "$REPO" ] && REPO="$USER" && USER="couchand"
+[ -z "$DEST" ] && DEST="$REPO"
+git clone git@github.com:$USER/$REPO.git $DEST
+cd $DEST
 }
