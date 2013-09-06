@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-PS1='\w \$ '
+PS1='\t \w \$ '
 
 # If this is an xterm set the title
 case "$TERM" in
