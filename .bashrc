@@ -116,3 +116,12 @@ DEST="$3"
 git clone git@github.com:$USER/$REPO.git $DEST
 cd $DEST
 }
+
+clonegist()
+{
+GIST="$1"
+DEST="$1"
+[ -z "$DEST" ] && DEST="$GIST"
+git clone git@github.com:$GIST.git $DEST
+cd $DEST
+}
