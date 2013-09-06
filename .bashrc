@@ -8,6 +8,7 @@ YELLOW="\[\033[0;33m\]"
 RED="\[\033[0;31m\]"
 BOLDRED="\[\033[1;31m\]"
 BLUE="\[\033[0;34m\]"
+GREEN="\[\033[0;32m\]"
 TEAL="\[\033[0;36m\]"
 RESET="\[\033[0m\]"
 
@@ -24,9 +25,16 @@ function parse_git_branch {
   else
     state="${BLUE}"
   fi
+
+  if [[ ${git_status} =~ "untracked files present" ]]; then
+    extra="${GREEN}+"
+  else
+    extra=""
+  fi
+
   if [[ ${git_status} =~ ${branch_pattern} ]]; then
     branch=${BASH_REMATCH[1]}
-    echo " ${BLUE}(${state}${branch}${BLUE})"
+    echo " ${BLUE}(${state}${branch}${extra}${BLUE})"
   fi
 }
 
