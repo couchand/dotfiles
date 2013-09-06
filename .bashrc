@@ -8,6 +8,7 @@ YELLOW="\[\033[0;33m\]"
 RED="\[\033[0;31m\]"
 BOLDRED="\[\033[1;31m\]"
 BLUE="\[\033[0;34m\]"
+TEAL="\[\033[0;36m\]"
 RESET="\[\033[0m\]"
 
 function parse_git_branch {
@@ -30,7 +31,7 @@ function parse_git_branch {
 }
 
 function prompt_func {
-  PS1="\t ${YELLOW}\w${RESET}$(parse_git_branch)${RESET} \$ "
+  PS1="${TEAL}\t ${YELLOW}\w$(parse_git_branch)${RESET} \$ "
 }
 
 PROMPT_COMMAND=prompt_func
