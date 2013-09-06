@@ -5,12 +5,15 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-PS1='\t \w \$ '
+YELLOW="\[\033[0;33m\]"
+BLUE="\[\033[0;34m\]"
+RESET="\[\033[0m\]"
+PS1="\t ${YELLOW}\w${RESET}${BLUE}$(__git_ps1)${RESET} \$ "
 
 # If this is an xterm set the title
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;\w\a\]$PS1"
+    PS1="\[\e]0;\w$(__git_ps1)\a\]$PS1"
     ;;
 *)
     ;;
