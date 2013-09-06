@@ -7,6 +7,7 @@
 
 YELLOW="\[\033[0;33m\]"
 RED="\[\033[0;31m\]"
+BOLDRED="\[\033[1;31m\]"
 BLUE="\[\033[0;34m\]"
 RESET="\[\033[0m\]"
 
@@ -16,6 +17,10 @@ function parse_git_branch {
   branch_pattern="^# On branch ([^${IFS}]*)"
   if [[ ! ${git_status} =~ "working directory clean" ]]; then
     state="${RED}"
+  elif [[ ${git_status} =~ "Your branch and " ]]; then
+    state="${BOLDRED}"
+  elif [[ ${git_status} =~ "Your branch is " ]]; then
+    state="${YELLOW}"
   else
     state="${BLUE}"
   fi
