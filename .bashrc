@@ -6,9 +6,26 @@
 [ -z "$PS1" ] && return
 
 YELLOW="\[\033[0;33m\]"
+RED="\[\033[0;31m\]"
 BLUE="\[\033[0;34m\]"
 RESET="\[\033[0m\]"
-PS1="\t ${YELLOW}\w${RESET}${BLUE}$(__git_ps1)${RESET} \$ "
+
+function parse_git_branch {
+  git rev-parse --git-dir &> /dev/null
+  git_status="$(git status 2> /dev/null)"
+  branch_pattern="^# On branch ([^${IFS}]*)"
+  if [[ ! ${git_status} =~ "working directory clean" ]]; then
+    state="${RED}"
+  else
+    state="${BLUE}"
+  fi
+  if [[ ${git_status} =~ ${branch_pattern} ]]; then
+    branch=${BASH_REMATCH[1]}
+    echo " ${BLUE}(${state}${branch}${BLUE})"
+  fi
+}
+
+PS1="\t ${YELLOW}\w${RESET}$(parse_git_branch)${RESET} \$ "
 
 # If this is an xterm set the title
 case "$TERM" in
