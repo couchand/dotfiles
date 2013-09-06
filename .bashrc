@@ -25,7 +25,11 @@ function parse_git_branch {
   fi
 }
 
-PS1="\t ${YELLOW}\w${RESET}$(parse_git_branch)${RESET} \$ "
+function prompt_func {
+  PS1="\t ${YELLOW}\w${RESET}$(parse_git_branch)${RESET} \$ "
+}
+
+PROMPT_COMMAND=prompt_func
 
 # If this is an xterm set the title
 case "$TERM" in
