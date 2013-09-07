@@ -16,7 +16,9 @@ function parse_git_branch {
   git rev-parse --git-dir &> /dev/null
   git_status="$(git status 2> /dev/null)"
   branch_pattern="^# On branch ([^${IFS}]*)"
-  if [[ ! ${git_status} =~ "working directory clean" ]]; then
+  if [[ ${git_status} =~ "Changes to be committed" ]]; then
+    state="${TEAL}"
+  elif [[ ${git_status} =~ "Changes not staged" ]]; then
     state="${RED}"
   elif [[ ${git_status} =~ "Your branch and " ]]; then
     state="${BOLDRED}"
@@ -26,7 +28,7 @@ function parse_git_branch {
     state="${BLUE}"
   fi
 
-  if [[ ${git_status} =~ "untracked files present" ]]; then
+  if [[ ${git_status} =~ "ntracked files" ]]; then
     extra="${GREEN}+"
   else
     extra=""
