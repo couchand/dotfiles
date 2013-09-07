@@ -17,7 +17,7 @@ function parse_git_branch {
   git_status="$(git status 2> /dev/null)"
   branch_pattern="^# On branch ([^${IFS}]*)"
   if [[ ${git_status} =~ "Changes to be committed" ]]; then
-    state="${TEAL}"
+    state="${GREEN}"
   elif [[ ${git_status} =~ "Changes not staged" ]]; then
     state="${RED}"
   elif [[ ${git_status} =~ "Your branch and " ]]; then
