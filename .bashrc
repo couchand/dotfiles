@@ -25,7 +25,7 @@ function parse_git_branch {
   elif [[ ${git_status} =~ "Your branch and " ]]; then
     state="${BOLDRED}"
   elif [[ ${git_status} =~ "Your branch is " ]]; then
-    state="${YELLOW}"
+    state="${BOLDRED}"
   else
     state="${BLUE}"
   fi
