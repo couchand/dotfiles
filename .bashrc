@@ -16,22 +16,18 @@ function parse_git_branch {
   git rev-parse --git-dir &> /dev/null
   git_status="$(git status 2> /dev/null)"
   branch_pattern="^# On branch ([^${IFS}]*)"
-  if [[ ${git_status} =~ "Changes to be committed" && ${git_status} =~ "Changes not staged" ]]; then
-    state="${YELLOW}"
-  elif [[ ${git_status} =~ "Changes to be committed" ]]; then
-    state="${GREEN}"
-  elif [[ ${git_status} =~ "Changes not staged" ]]; then
-    state="${RED}"
-  elif [[ ${git_status} =~ "Your branch and " ]]; then
-    state="${BOLDRED}"
-  elif [[ ${git_status} =~ "Your branch is " ]]; then
+  if [[ ${git_status} =~ "Your branch " ]]; then
     state="${BOLDRED}"
   else
     state="${BLUE}"
   fi
 
-  if [[ ${git_status} =~ "ntracked files" ]]; then
+  if [[ ${git_status} =~ "Changes to be committed" && ${git_status} =~ "Changes not staged" ]]; then
+    extra="${YELLOW}+"
+  elif [[ ${git_status} =~ "Changes to be committed" ]]; then
     extra="${GREEN}+"
+  elif [[ ${git_status} =~ "Changes not staged" ]]; then
+    extra="${RED}+"
   else
     extra=""
   fi
