@@ -159,7 +159,7 @@ cd $DEST
 clonegist()
 {
 GIST="$1"
-DEST="$1"
+DEST="$2"
 [ -z "$DEST" ] && DEST="$GIST"
 git clone git@github.com:$GIST.git $DEST
 cd $DEST
