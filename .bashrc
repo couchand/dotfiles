@@ -42,18 +42,18 @@ function parse_git_branch {
 
 function prompt_func {
   PS1="${TEAL}\t ${YELLOW}\w$(parse_git_branch)${RESET} \$ "
+
+  # If this is an xterm set the title
+  case "$TERM" in
+  xterm*|rxvt*)
+      PS1="\[\e]0;\w$(__git_ps1)\a\]$PS1"
+      ;;
+  *)
+      ;;
+  esac
 }
 
 PROMPT_COMMAND=prompt_func
-
-# If this is an xterm set the title
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;\w$(__git_ps1)\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
