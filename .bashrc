@@ -103,6 +103,7 @@ alias gits='git status'
 alias gitp='git add -p'
 alias gitd='git diff'
 alias gitc='git diff --cached'
+alias giti='git init'
 
 # git typos
 alias gtis='gits'
@@ -128,6 +129,9 @@ alias gtci='gitc'
 alias gcti='gitc'
 alias gcit='gitc'
 alias gict='gitc'
+
+alias gtii='giti'
+alias giit='giti'
 
 alias mocha='mocha --compilers coffee:coffee-script'
 alias cloc='cloc --read-lang-def=/home/andrew/projects/cloc-force/force-def.txt'
