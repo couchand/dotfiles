@@ -17,3 +17,6 @@ set is
 set ic
 "hit enter after search to clear highlight
 nnoremap <CR> :noh<CR><CR>
+
+"highlight syntax from start
+autocmd BufEnter * :syntax sync fromstart
