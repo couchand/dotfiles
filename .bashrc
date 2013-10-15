@@ -1,6 +1,8 @@
 # .bashrc - terminal settings
 # Andrew Couch
 
+source /usr/lib/git-core/git-sh-prompt
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
