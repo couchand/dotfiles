@@ -13,8 +13,6 @@ set ts=4
 set hls
 "incremental search
 set is
-"ignore case
-set ic
 "hit enter after search to clear highlight
 nnoremap <CR> :noh<CR><CR>
 
