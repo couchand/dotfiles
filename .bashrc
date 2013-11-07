@@ -168,3 +168,8 @@ DEST="$2"
 git clone git@github.com:$GIST.git $DEST
 cd $DEST
 }
+
+pushnew()
+{
+git remote add origin "$1" && git push -u origin master
+}
