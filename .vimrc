@@ -1,6 +1,8 @@
 ".vimrc
 
 "vim settings
+"  for more info on any setting
+"    :help scs
 
 "line numbers
 set nu
