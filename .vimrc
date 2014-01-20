@@ -16,5 +16,10 @@ set is
 "hit enter after search to clear highlight
 nnoremap <CR> :noh<CR><CR>
 
+"ignore case in searches
+set ic
+"but smart case
+set scs
+
 "highlight syntax from start
 autocmd BufEnter * :syntax sync fromstart
