@@ -143,6 +143,9 @@ alias tree='tree -L 3 -I *-meta.xml'
 export DEBFULLNAME="Andrew Couch"
 export DEBEMAIL="andy@couchand.com"
 
+# grunt autocomplete
+eval "$(grunt --completion=bash)"
+
 mkcd()
 {
 MYDIR="$1"
