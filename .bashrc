@@ -1,8 +1,6 @@
 # .bashrc - terminal settings
 # Andrew Couch
 
-source /usr/lib/git-core/git-sh-prompt
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -17,11 +15,11 @@ RESET="\[\033[0m\]"
 function parse_git_branch {
   git rev-parse --git-dir &> /dev/null
   git_status="$(git status 2> /dev/null)"
-  branch_pattern="^# On branch ([^${IFS}]*)"
-  if [[ ${git_status} =~ "Your branch " ]]; then
-    state="${BOLDRED}"
-  else
+  branch_pattern="^On branch ([^${IFS}]*)"
+  if [[ ${git_status} =~ "Your branch is up-to-date" ]]; then
     state="${BLUE}"
+  else
+    state="${BOLDRED}"
   fi
 
   if [[ ${git_status} =~ "Changes to be committed" && ${git_status} =~ "Changes not staged" ]]; then
