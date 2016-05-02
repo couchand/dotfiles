@@ -147,7 +147,7 @@ eval "$(grunt --completion=bash)"
 mkcd()
 {
 MYDIR="$1"
-mkdir "$MYDIR" && cd "$MYDIR"
+mkdir -p "$MYDIR" && cd "$MYDIR"
 }
 
 clone()
