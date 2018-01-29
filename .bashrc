@@ -38,6 +38,9 @@ function parse_git_branch {
   if [[ ${git_status} =~ ${branch_pattern} ]]; then
     branch=${BASH_REMATCH[1]}
     echo " ${BLUE}(${state}${branch}${extra}${BLUE})"
+  elif [[ ${git_status} =~ ${rebase_pattern} ]]; then
+    branch=${BASH_REMATCH[1]}
+    echo " ${BLUE}(${BOLDRED}rebasing ${branch}${BLUE})"
   fi
 }
 
