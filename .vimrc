@@ -25,3 +25,5 @@ set scs
 
 "highlight syntax from start
 autocmd BufEnter * :syntax sync fromstart
+
+set paste
