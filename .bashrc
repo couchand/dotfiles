@@ -16,7 +16,10 @@ function parse_git_branch {
   git rev-parse --git-dir &> /dev/null
   git_status="$(git status 2> /dev/null)"
   branch_pattern="^On branch ([^${IFS}]*)"
-  if [[ ${git_status} =~ "Your branch is up-to-date" ]]; then
+  up_to_date_pattern="^Your branch is up[- ]to[- ]date"
+  rebase_pattern="You are currently rebasing branch '([^']*)'"
+
+  if [[ ${git_status} =~ ${up_to_date_pattern} ]]; then
     state="${BLUE}"
   else
     state="${BOLDRED}"
