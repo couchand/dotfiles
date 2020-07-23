@@ -147,6 +147,8 @@ alias tree='tree -L 3 -I *.cls-meta.xml -I *.trigger-meta.xml'
 export DEBFULLNAME="Andrew Couch"
 export DEBEMAIL="andy@couchand.com"
 
+export SFDX_REQUIRE_ANALYTICS="nope"
+
 # grunt autocomplete
 eval "$(grunt --completion=bash)"
 
